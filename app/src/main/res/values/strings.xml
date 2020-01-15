@@ -9,5 +9,24 @@
         <item>Greek</item>
         <item>Italian</item>
         <item>Filipino</item>
+        <item>Lebanese</item>
+        <item>Vietnamese</item>
+        <item>Egyptian</item>
+        <item>Mexican</item>
     </string-array>
+
+    <string name="location">
+        <item>Brookline</item>
+        <item>Boston</item>
+        <item>North Quincy</item>
+    </string>
+
+    <string name="names">
+        <item country="Lebanese" location="Brookline">Shawarma King</item>
+        <item country="Vietnamese" location="North Quincy">Pho Linh</item>
+        <item country="Albanian" location="North Quincy">Alba</item>
+        <item country="American" location="Boston">Boloco</item>
+        <item country="Egyptian" location="Boston">Falafel King</item>
+        <item country="Mexican" location="Boston">Chipotle</item>
+    </string>
 </resources>
