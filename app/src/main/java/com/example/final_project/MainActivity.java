@@ -8,24 +8,38 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private HashMap<String, ArrayList<Restaurant>> restaurants;
+    private Spinner country;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-       FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        country = findViewById(R.id.country);
+
+        restaurants = new HashMap<>();
+        restaurants.put("Indian", new ArrayList<Restaurant>());
+        restaurants.put("Filipino", new ArrayList<Restaurant>());
+        restaurants.put("Greek", new ArrayList<Restaurant>());
+        restaurants.put("Italian", new ArrayList<Restaurant>());
+
+        ArrayList<Restaurant> indianList = new ArrayList<>();
+        indianList.add(new Restaurant("Shanti Taste of India", 5, "Indian", 5, 5, new ArrayList<String>(), 5));
+        indianList.add(new Restaurant("Surya Indian Express", 5, "Indian", 5, 5, new ArrayList<String>(), 5));
+        indianList.add(new Restaurant("Royal Punjab", 5, "Indian", 5, 5, new ArrayList<String>(), 5));
+        indianList.add(new Restaurant("Punjabi Dhaba", 5, "Indian", 5, 5, new ArrayList<String>(), 5));
+        indianList.add(new Restaurant("Desi Dhaba", 5, "Indian", 5, 5, new ArrayList<String>(), 5));
+        restaurants.get("Indian").addAll(indianList);
+
     }
 
     @Override
@@ -48,5 +62,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onSearch(View v) {
+        String country = String.valueOf(this.country.getSelectedItem());
+        TextView results = findViewById(R.id.result);
+        String res = "";
+        ArrayList<Restaurant> restaurants = this.restaurants.get(country);
+        for (Restaurant r : restaurants) {
+            res += (r.getName() + "\n");
+        }
+        results.setText(res);
     }
 }
