@@ -1,5 +1,6 @@
 package com.example.final_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -18,6 +19,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private HashMap<String, ArrayList<Restaurant>> restaurants;
     private Spinner country;
+    public static final String EXTRA_MESSAGE = "com.exmaple.final_project.SEARCHRESULT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     public void onSearch(View v) {
         String country = String.valueOf(this.country.getSelectedItem());
         TextView results = findViewById(R.id.result);
@@ -73,5 +77,13 @@ public class MainActivity extends AppCompatActivity {
             res += (r.getName() + "\n");
         }
         results.setText(res);
+
+
+
+        //swtiches the activity
+        Intent intent = new Intent(this, SearchResult.class);
+        intent.putExtra(EXTRA_MESSAGE, restaurants);
+        startActivity(intent);
     }
+
 }
