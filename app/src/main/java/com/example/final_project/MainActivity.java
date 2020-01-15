@@ -9,17 +9,22 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private HashMap<String, ArrayList<Restaurant>> restaurants;
-    private Spinner country;
     public static final String EXTRA_MESSAGE = "com.exmaple.final_project.SEARCHRESULT";
+    private HashMap<String, ArrayList<Restaurant>> restaurants;
+    ArrayList<Restaurant> results;
+    private Spinner country;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Restaurant> indianList = new ArrayList<>();
         indianList.add(new Restaurant("Shanti Taste of India", 5, "Indian", 5, 5, 5));
-        indianList.add(new Restaurant("Surya Indian Express", 5, "Indian", 5, 5, 5));
-        indianList.add(new Restaurant("Royal Punjab", 5, "Indian", 5, 5, 5));
+        indianList.add(new Restaurant("Surya Indian Express", 5, "Indian", 5, 5, 4));
+        indianList.add(new Restaurant("Royal Punjab", 5, "Indian", 5, 5, 2));
         indianList.add(new Restaurant("Punjabi Dhaba", 5, "Indian", 5, 5, 5));
-        indianList.add(new Restaurant("Desi Dhaba", 5, "Indian", 5, 5, 5));
+        indianList.add(new Restaurant("Desi Dhaba", 5, "Indian", 5, 5, 1));
         restaurants.get("Indian").addAll(indianList);
 
     }
@@ -66,26 +71,44 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void sortResults() {
+        RadioGroup radioGroup = findViewById(R.id.radioGroup);
+        RadioButton radioButton;
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        radioButton = (RadioButton) findViewById(selectedId);
+
+        TextView test = findViewById(R.id.result);
+        test.setText(radioButton.getText());
+
+
+        Collections.sort(results);
+
+    }
+
 
 
     public void onSearch(View v) {
         String country = String.valueOf(this.country.getSelectedItem());
-        TextView results = findViewById(R.id.result);
+        TextView tv = findViewById(R.id.result);
         String res = "";
-        ArrayList<Restaurant> restaurants = this.restaurants.get(country);
-        for (Restaurant r : restaurants) {
+        results = this.restaurants.get(country);
+
+        sortResults();
+
+        for (Restaurant r : results) {
             res += (r.getName() + "\n");
         }
-        results.setText(res);
+
+        tv.setText(res);
 
 
 
         //switches the activity
-        Intent intent = new Intent(this, SearchResult.class);
-        Bundle bundle = new Bundle();
-        bundle.putParcelableArrayList(EXTRA_MESSAGE, restaurants);
-        intent.putExtras(bundle);
-        startActivity(intent);
+//        Intent intent = new Intent(this, SearchResult.class);
+//        Bundle bundle = new Bundle();
+//        bundle.putParcelableArrayList(EXTRA_MESSAGE, restaurants);
+//        intent.putExtras(bundle);
+//        startActivity(intent);
     }
 
 }

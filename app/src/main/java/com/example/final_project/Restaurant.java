@@ -5,14 +5,17 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
-public class Restaurant implements Parcelable {
+public class Restaurant implements Parcelable, Comparable<Restaurant> {
     private String name;
     private int location;
     private String country;
     private int quality;
+
     private int authenticity;
-    private int price;
+    public int price;
 
     Restaurant(String name, int location, String country, int q, int a, int p) {
         this.name = name;
@@ -21,6 +24,27 @@ public class Restaurant implements Parcelable {
         this.price = p;
         this.authenticity = a;
         this.quality = q;
+    }
+
+    @Override
+    public int compareTo(Restaurant another) {
+        if (this.getPrice()<another.getPrice()){
+            return -1;
+        }else{
+            return 1;
+        }
+    }
+
+    public int getQuality() {
+        return quality;
+    }
+
+    public int getAuthenticity() {
+        return authenticity;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     public String getName() {
