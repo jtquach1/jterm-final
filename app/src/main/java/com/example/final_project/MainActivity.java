@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //swtiches the activity
+        //switches the activity
         Intent intent = new Intent(this, SearchResult.class);
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList(EXTRA_MESSAGE, restaurants);

@@ -60,7 +60,7 @@ public class Restaurant implements Parcelable {
 
     }
 
-    //creator - used when un-parceling our parcle (creating the object)
+    //creator - used when un-parceling our parcel (creating the object)
     public static final Parcelable.Creator<Restaurant> CREATOR = new Parcelable.Creator<Restaurant>(){
 
         @Override
