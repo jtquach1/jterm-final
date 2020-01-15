@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
         restaurants.put("Italian", new ArrayList<Restaurant>());
 
         ArrayList<Restaurant> indianList = new ArrayList<>();
-        indianList.add(new Restaurant("Shanti Taste of India", 5, "Indian", 5, 5, new ArrayList<String>(), 5));
-        indianList.add(new Restaurant("Surya Indian Express", 5, "Indian", 5, 5, new ArrayList<String>(), 5));
-        indianList.add(new Restaurant("Royal Punjab", 5, "Indian", 5, 5, new ArrayList<String>(), 5));
-        indianList.add(new Restaurant("Punjabi Dhaba", 5, "Indian", 5, 5, new ArrayList<String>(), 5));
-        indianList.add(new Restaurant("Desi Dhaba", 5, "Indian", 5, 5, new ArrayList<String>(), 5));
+        indianList.add(new Restaurant("Shanti Taste of India", 5, "Indian", 5, 5, 5));
+        indianList.add(new Restaurant("Surya Indian Express", 5, "Indian", 5, 5, 5));
+        indianList.add(new Restaurant("Royal Punjab", 5, "Indian", 5, 5, 5));
+        indianList.add(new Restaurant("Punjabi Dhaba", 5, "Indian", 5, 5, 5));
+        indianList.add(new Restaurant("Desi Dhaba", 5, "Indian", 5, 5, 5));
         restaurants.get("Indian").addAll(indianList);
 
     }
@@ -82,7 +82,9 @@ public class MainActivity extends AppCompatActivity {
 
         //swtiches the activity
         Intent intent = new Intent(this, SearchResult.class);
-        intent.putExtra(EXTRA_MESSAGE, restaurants);
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList(EXTRA_MESSAGE, restaurants);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 

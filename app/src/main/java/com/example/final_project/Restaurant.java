@@ -1,33 +1,28 @@
 package com.example.final_project;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Restaurant {
+public class Restaurant implements Parcelable {
     private String name;
     private int location;
     private String country;
-    private Rating rating;
+    private int quality;
+    private int authenticity;
+    private int price;
 
-    Restaurant(String name, int location, String country, int q, int a, ArrayList<String> l, int p) {
+    Restaurant(String name, int location, String country, int q, int a, int p) {
         this.name = name;
         this.location = location;
         this.country = country;
-        this.rating = new Rating(q, a, l, p);
+        this.price = p;
+        this.authenticity = a;
+        this.quality = q;
     }
 
-    class Rating {
-        private int quality;
-        private int authenticity;
-        private ArrayList<String> languages;
-        private int price;
-
-        Rating(int q, int a, ArrayList<String> l, int p) {
-            quality = q;
-            authenticity = a;
-            languages = l;
-            price = p;
-        }
-    }
     public String getName() {
         return name;
     }
@@ -40,7 +35,48 @@ public class Restaurant {
         return country;
     }
 
-    public Rating getRating() {
-        return rating;
+
+    public void writeToParcel(Parcel dest, int flags){
+
+        dest.writeString(name);
+        dest.writeInt(location);
+        dest.writeString(country);
+        dest.writeInt(quality);
+        dest.writeInt(authenticity);
+        dest.writeInt(price);
+
+
     }
+
+    //constructor used for parcel
+    public Restaurant(Parcel parcel){
+
+        name = parcel.readString();
+        location = parcel.readInt();
+        country = parcel.readString();
+        quality = parcel.readInt();
+        authenticity = parcel.readInt();
+        price = parcel.readInt();
+
+    }
+
+    //creator - used when un-parceling our parcle (creating the object)
+    public static final Parcelable.Creator<Restaurant> CREATOR = new Parcelable.Creator<Restaurant>(){
+
+        @Override
+        public Restaurant createFromParcel(Parcel parcel) {
+            return new Restaurant(parcel);
+        }
+
+        @Override
+        public Restaurant[] newArray(int size) {
+            return new Restaurant[0];
+        }
+    };
+
+    //return hashcode of object
+    public int describeContents() {
+        return hashCode();
+    }
+
 }
