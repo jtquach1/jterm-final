@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,12 +26,17 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder> {
         public ImageView img;
         public View layout;
         public TextView country;
+        public RatingBar authenticityRating;
+        public RatingBar qualityRating;
+        public RatingBar priceRating;
 
         public ViewHolder(View v) {
             super(v);
             layout = v;
-            name = (TextView) v.findViewById(R.id.name);
-            //img = v.findViewById(R.id.card_pic);
+            name = v.findViewById(R.id.name);
+            authenticityRating = v.findViewById(R.id.authenticity_rating);
+            qualityRating = v.findViewById(R.id.quality_rating);
+            priceRating = v.findViewById(R.id.price_rating);
             country = v.findViewById(R.id.country);
         }
     }
@@ -67,12 +73,15 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
         String name = values.get(position).getName();
-        int image = values.get(position).getImage();
         String country = values.get(position).getCountry();
-
+        int qualityStars = values.get(position).getQuality();
+        int authenticityStars = values.get(position).getAuthenticity();
+        int priceStars = values.get(position).getPrice();
 
         holder.name.setText(name);
-        //holder.img.setImageResource(image);
+        holder.qualityRating.setRating(qualityStars);
+        holder.authenticityRating.setRating(authenticityStars);
+        holder.priceRating.setRating(priceStars);
         holder.country.setText(country);
 
 

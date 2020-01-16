@@ -22,6 +22,8 @@ public class SearchResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
 
+        getSupportActionBar().hide();
+
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         res = intent.getParcelableArrayListExtra(MainActivity.EXTRA_MESSAGE);
