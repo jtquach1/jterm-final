@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             res += (r.getName() + "\n");
         }
 
-        tv.setText(res);
+        //tv.setText(res);
 
 
 
