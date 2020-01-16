@@ -9,13 +9,13 @@
     <LinearLayout
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="120dp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/card_pic"
             android:layout_width="10dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="16dp"
             app:srcCompat="@drawable/restaurant1" />
@@ -23,7 +23,7 @@
         <LinearLayout
             android:id="@+id/card_content"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
             android:padding="16dp">
@@ -35,17 +35,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/restaurant"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Restaurant" />
-
-                <TextView
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Shawarma King" />
+                    android:text="Shawarma King"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
             <LinearLayout
@@ -55,17 +49,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/countrytitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Country" />
-
-                <TextView
                     android:id="@+id/country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lebanese" />
+                    android:text="Lebanese"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
             </LinearLayout>
 
             <LinearLayout
@@ -76,8 +64,9 @@
 
                 <TextView
                     android:id="@+id/quality"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0"
                     android:text="Quality" />
 
                 <RatingBar
@@ -88,8 +77,6 @@
                     android:layout_gravity="right"
                     android:layout_weight="1"
                     android:max="5"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
                     android:rating="3.5"
                     app:layout_constraintBottom_toTopOf="@+id/submitButton"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -107,9 +94,9 @@
 
                 <TextView
                     android:id="@+id/authenticity"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0"
                     android:text="Authenticity" />
 
                 <RatingBar
@@ -120,8 +107,6 @@
                     android:layout_gravity="right"
                     android:layout_weight="1"
                     android:max="5"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
                     android:rating="4.5"
                     app:layout_constraintBottom_toTopOf="@+id/submitButton"
                     app:layout_constraintEnd_toEndOf="parent"
