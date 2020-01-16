@@ -53,9 +53,51 @@
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/search"
-        app:layout_constraintTop_toBottomOf="@+id/country"
-        tools:layout_editor_absoluteX="160dp" />
+        tools:layout_editor_absoluteX="176dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Sort By"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="376dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        android:checkedButton="@+id/price"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <RadioButton
+            android:id="@+id/price"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:text="Price" />
+
+        <RadioButton
+            android:id="@+id/authenticity"
+            android:layout_width="159dp"
+            android:layout_height="wrap_content"
+            android:text="Authenticity" />
+
+        <RadioButton
+            android:id="@+id/quality"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:text="Quality" />
+
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
