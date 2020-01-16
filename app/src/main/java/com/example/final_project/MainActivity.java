@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Restaurant> indianList = new ArrayList<>();
         indianList.add(new Restaurant("Shanti Taste of India", 5, "Indian", 5, 5, 5, R.drawable.restaurant1));
         indianList.add(new Restaurant("Surya Indian Express", 5, "Indian", 4, 4, 4, (R.drawable.restaurant2)));
-        indianList.add(new Restaurant("Royal Punjab", 5, "Indian", 5, 5, 2, (R.drawable.restaurant6)));
-        indianList.add(new Restaurant("Punjabi Dhaba", 5, "Indian", 1, 3, 5, (R.drawable.restaurant7)));
-        indianList.add(new Restaurant("Desi Dhaba", 5, "Indian", 2, 1, 1, (R.drawable.restaurant8)));
+        indianList.add(new Restaurant("Royal Punjab", 5, "Indian", 5, 5, 2, (R.drawable.restaurant3)));
+        indianList.add(new Restaurant("Punjabi Dhaba", 5, "Indian", 1, 3, 5, (R.drawable.restaurant4)));
+        indianList.add(new Restaurant("Desi Dhaba", 5, "Indian", 2, 1, 1, (R.drawable.restaurant5)));
         restaurants.get("Indian").addAll(indianList);
 
     }

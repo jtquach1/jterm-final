@@ -17,6 +17,21 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder> {
     private ArrayList<Restaurant> values;
 
+    private int[] images = new int[] {
+            R.drawable.restaurant1,
+            R.drawable.restaurant2,
+            R.drawable.restaurant3,
+            R.drawable.restaurant4,
+            R.drawable.restaurant5,
+            R.drawable.restaurant6,
+            R.drawable.restaurant7,
+            R.drawable.restaurant8,
+            R.drawable.restaurant9,
+            R.drawable.restaurant10,
+            R.drawable.restaurant11
+    };
+    private int counter = 0;
+
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -31,7 +46,7 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder> {
             super(v);
             layout = v;
             name = (TextView) v.findViewById(R.id.name);
-            //img = v.findViewById(R.id.card_pic);
+            img = v.findViewById(R.id.card_pic);
             country = v.findViewById(R.id.country);
         }
     }
@@ -70,13 +85,17 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder> {
         String name = values.get(position).getName();
         int image = values.get(position).getImage();
 
-        Log.d("onBindViewHolder", image + "");
-
         String country = values.get(position).getCountry();
 
 
         holder.name.setText(name);
-        holder.img.setImageResource(image);
+//        Log.d("onBindViewHolder", image + "");
+//        holder.img.setImageResource(image);
+
+        // go through private images array
+        Log.d("onBindViewHolder", images[counter] + "");
+        holder.img.setImageResource(images[counter]);
+        counter++;
 
         Log.d("onBindViewHolder", "Set image");
 
