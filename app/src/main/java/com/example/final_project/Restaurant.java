@@ -99,6 +99,8 @@ public class Restaurant implements Parcelable {
 
     public void writeToParcel(Parcel dest, int flags){
 
+        // read and write order must be the same
+        // name, location, country, quality, authenticity, price
         dest.writeString(name);
         dest.writeInt(location);
         dest.writeString(country);
@@ -106,18 +108,29 @@ public class Restaurant implements Parcelable {
         dest.writeInt(authenticity);
         dest.writeInt(price);
 
+        // write the image id to the blob
+        // why: when calling SearchResult from MainActivity, the image id's didn't "convert"
+        // so, all the images used to be set to an int value of 0
+        // never originally had image written to the stream
+        dest.writeInt(image);
 
     }
 
     //constructor used for parcel
     public Restaurant(Parcel parcel){
 
+        // read and write order must be the same
+        // name, location, country, quality, authenticity, price
         name = parcel.readString();
         location = parcel.readInt();
         country = parcel.readString();
         quality = parcel.readInt();
         authenticity = parcel.readInt();
         price = parcel.readInt();
+
+        // same as from writeToParcel()
+        // have to r
+        image = parcel.readInt();
 
     }
 

@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -23,7 +24,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.exmaple.final_project.SEARCHRESULT";
     private HashMap<String, ArrayList<Restaurant>> restaurants;
-    ArrayList<Restaurant> results;
+    ArrayList<Restaurant> results = new ArrayList<>();
     private Spinner country;
 
     @Override
@@ -34,10 +35,18 @@ public class MainActivity extends AppCompatActivity {
         country = findViewById(R.id.country);
 
         restaurants = new HashMap<>();
-        restaurants.put("Indian", new ArrayList<Restaurant>());
-        restaurants.put("Filipino", new ArrayList<Restaurant>());
-        restaurants.put("Greek", new ArrayList<Restaurant>());
-        restaurants.put("Italian", new ArrayList<Restaurant>());
+
+        // Add an empty list for each type of food.
+        // Before, all other country types never had ArrayLists defined for them
+        // Aaron suggests: Have the country types be stored in a .txt file instead of strings.xml
+        // If they're in a central data file, then the items can be loaded and used
+        // Our UI is using strings.xml, but the for loop is currently and
+        // manually being kept in sync with what's in strings.xml
+        // VERY DANGEROUS to have null instead of new ArrayList<>() because null != empty object
+        // You can't call methods on null
+        for (String type : Arrays.asList("Indian", "Greek", "Italian", "Filipino", "Lebanese", "Vietnamese", "Egyptian", "Mexican", "Japanese")) {
+            restaurants.put(type, new ArrayList<Restaurant>());
+        }
 
         ArrayList<Restaurant> indianList = new ArrayList<>();
         indianList.add(new Restaurant("Shanti Taste of India", 5, "Indian", 5, 5, 5, R.drawable.restaurant1));
@@ -92,14 +101,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSearch(View v) {
         String country = String.valueOf(this.country.getSelectedItem());
-        results = this.restaurants.get(country);
+        results.clear();
+        results.addAll(this.restaurants.get(country));
 
         sortResults();
 
-        //switches the activity
-        Intent intent = new Intent(this, SearchResult.class);
+        // Package the filtered restaurants into a binary blob so that it can be sent over to the
+        // next activity.
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList(EXTRA_MESSAGE, results);
+
+        // Switches the activity
+        Intent intent = new Intent(this, SearchResult.class);
         intent.putExtras(bundle);
         startActivity(intent);
     }
