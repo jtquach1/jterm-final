@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         // change this to display the activity you want to test
 //        setContentView(R.layout.activity_main);
-//        setContentView(R.layout.activity_rate);
-        setContentView(R.layout.activity_results);
+        setContentView(R.layout.activity_rate);
+//        setContentView(R.layout.activity_results);
 
 
         country = findViewById(R.id.country);
