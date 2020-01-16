@@ -7,8 +7,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 
-public class Restaurant implements Parcelable, Comparable<Restaurant> {
+public class Restaurant implements Parcelable {
     private String name;
     private int location;
     private String country;
@@ -26,14 +27,41 @@ public class Restaurant implements Parcelable, Comparable<Restaurant> {
         this.quality = q;
     }
 
-    @Override
-    public int compareTo(Restaurant another) {
-        if (this.getPrice()<another.getPrice()){
-            return -1;
-        }else{
-            return 1;
+    // Comparator for sorting the list by price
+    public static Comparator<Restaurant> priceComparator = new Comparator<Restaurant>() {
+
+        public int compare(Restaurant r1, Restaurant r2) {
+            int price1 = r1.getPrice();
+            int price2 = r2.getPrice();
+
+            //ascending order
+            return price1 - price2;
         }
-    }
+    };
+
+    // Comparator for sorting the list by price
+    public static Comparator<Restaurant> authenticityComparator = new Comparator<Restaurant>() {
+
+        public int compare(Restaurant r1, Restaurant r2) {
+            int authenticity1 = r1.getAuthenticity();
+            int authenticity2 = r2.getAuthenticity();
+
+            //ascending order
+            return authenticity1 - authenticity2;
+        }
+    };
+
+    public static Comparator<Restaurant> qualityComparator = new Comparator<Restaurant>() {
+
+        public int compare(Restaurant r1, Restaurant r2) {
+            int quality1 = r1.getQuality();
+            int quality2 = r2.getQuality();
+
+            //ascending order
+            return quality1 - quality2;
+        }
+    };
+
 
     public int getQuality() {
         return quality;

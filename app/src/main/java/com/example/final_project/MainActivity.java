@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Restaurant> indianList = new ArrayList<>();
         indianList.add(new Restaurant("Shanti Taste of India", 5, "Indian", 5, 5, 5));
-        indianList.add(new Restaurant("Surya Indian Express", 5, "Indian", 5, 5, 4));
+        indianList.add(new Restaurant("Surya Indian Express", 5, "Indian", 4, 4, 4));
         indianList.add(new Restaurant("Royal Punjab", 5, "Indian", 5, 5, 2));
-        indianList.add(new Restaurant("Punjabi Dhaba", 5, "Indian", 5, 5, 5));
-        indianList.add(new Restaurant("Desi Dhaba", 5, "Indian", 5, 5, 1));
+        indianList.add(new Restaurant("Punjabi Dhaba", 5, "Indian", 1, 3, 5));
+        indianList.add(new Restaurant("Desi Dhaba", 5, "Indian", 2, 1, 1));
         restaurants.get("Indian").addAll(indianList);
 
     }
@@ -80,8 +80,14 @@ public class MainActivity extends AppCompatActivity {
         TextView test = findViewById(R.id.result);
         test.setText(radioButton.getText());
 
+        if (radioButton.getText().equals("Price"))
+            Collections.sort(results, Restaurant.priceComparator);
 
-        Collections.sort(results);
+        if (radioButton.getText().equals("Quality"))
+            Collections.sort(results, Restaurant.qualityComparator);
+
+        if (radioButton.getText().equals("Authenticity"))
+            Collections.sort(results, Restaurant.authenticityComparator);
 
     }
 
