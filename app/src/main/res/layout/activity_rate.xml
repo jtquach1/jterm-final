@@ -10,107 +10,174 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/colorBackground">
+            android:layout_height="match_parent">
 
-            <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/appBarLayout"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/AppTheme.AppBarOverlay">
+                android:background="#fff"
+                android:orientation="vertical">
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appBarLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@color/colorPrimary"
-                    app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-            </com.google.android.material.appbar.AppBarLayout>
-
-            <TextView
-                android:id="@+id/text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="What do you think of This Restaurant?"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                tools:srcCompat="@drawable/restaurant1" />
-
-            <TextView
-                android:id="@+id/text2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                tools:text="Leave a rating based on how authentic it is" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/ConstraintLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="80dp"
-                android:paddingTop="40dp"
-                android:paddingRight="80dp"
-                android:paddingBottom="40dp"
-                tools:context=".MainActivity">
-
-                <RatingBar
-                    android:id="@+id/simpleRatingBar"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:rating="2"
-                    app:layout_constraintBottom_toTopOf="@+id/submitButton"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    android:theme="@style/AppTheme.AppBarOverlay">
 
-                <Button
-                    android:id="@+id/submitButton"
-                    android:layout_width="200dp"
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@color/colorPrimary"
+                        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <TextView
+                    android:id="@+id/text4"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
-                    android:padding="10dp"
-                    android:text="Submit"
-                    android:textColor="#fff"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.661" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:padding="16dp"
+                    android:text="@string/review_question"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:contentDescription="@string/contentDescription"
+                    app:srcCompat="@drawable/restaurant1"
+                    tools:src="@drawable/restaurant1" />
+
+                <TextView
+                    android:id="@+id/text5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="@string/review_rating"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                <LinearLayout
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/authenticity"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text1"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginRight="40dp"
+                            android:layout_weight="0"
+                            android:gravity="center"
+                            android:text="Authenticity"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                        <RatingBar
+                            android:id="@+id/simpleRatingBar1"
+                            style="@style/Widget.AppCompat.RatingBar.Indicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:numStars="5"
+                            android:rating="0" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/quality"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text2"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginRight="40dp"
+                            android:layout_weight="0"
+                            android:gravity="center"
+                            android:text="Quality"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                        <RatingBar
+                            android:id="@+id/simpleRatingBar2"
+                            style="@style/Widget.AppCompat.RatingBar.Indicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:numStars="5"
+                            android:rating="0" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/expensive"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text3"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginRight="40dp"
+                            android:layout_weight="0"
+                            android:gravity="center"
+                            android:text="Expensive"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                        <RatingBar
+                            android:id="@+id/simpleRatingBar3"
+                            style="@style/Widget.AppCompat.RatingBar.Indicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:numStars="5"
+                            android:rating="0" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
+
+                    <Button
+                        android:id="@+id/submitButton"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimary"
+                        android:padding="10dp"
+                        android:text="@string/submit"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/go_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
             android:layout_margin="@dimen/fab_margin"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
-            app:backgroundTint="@android:color/holo_orange_dark"
+            app:backgroundTint="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@android:drawable/ic_menu_revert" />
