@@ -33,73 +33,123 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_results" />
-
-    <RelativeLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".ResultsActivity"
+        tools:showIn="@layout/activity_results">
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
+            android:id="@+id/card"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/card_pic"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:padding="16dp"
+                app:srcCompat="@drawable/restaurant1" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/card_content"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/restaurant1" />
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/r_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:text="Shawarma King" />
+
+                <TextView
+                    android:id="@+id/r_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lebanese" />
+
+                <LinearLayout
+                    android:id="@+id/r_quality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/quality"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/card_title"
-                        android:textColor="#000"
-                        android:textSize="18sp" />
+                        android:text="Quality" />
 
-                    <TextView
-                        android:layout_width="match_parent"
+                    <Space
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/card_content"
-                        android:textColor="#555" />
+                        android:layout_weight="1" />
+
+                    <RatingBar
+                        android:id="@+id/simpleRatingBar"
+                        style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="5"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:rating="3.5"
+                        app:layout_constraintBottom_toTopOf="@+id/submitButton"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:id="@+id/r_authenticity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                    <Button
+                    <TextView
+                        android:id="@+id/authenticity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/action_share"
-                        android:theme="@style/PrimaryFlatButton"
-                        />
+                        android:layout_weight="1"
+                        android:text="Authenticity" />
 
-                    <Button
+                    <Space
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <RatingBar
+                        android:id="@+id/simpleRatingBar2"
+                        style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/action_explore"
-                        android:theme="@style/PrimaryFlatButton"
-                        />
+                        android:layout_weight="1"
+                        android:max="5"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:rating="4.5"
+                        app:layout_constraintBottom_toTopOf="@+id/submitButton"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
                 </LinearLayout>
+
             </LinearLayout>
-        </android.support.v7.widget.CardView>
-    </RelativeLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
