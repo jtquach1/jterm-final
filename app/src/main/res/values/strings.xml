@@ -37,13 +37,17 @@
 
     <!-- Review page -->
     <string name="review_question">What did you think of Shawarma King?</string>
-    <string name="review_rating">Leave a rating based on how authentic it is.</string>
+    <string name="review_rating">Rate it below!</string>
     <string name="submit">Submit</string>
     <string name="contentDescription">Picture of a restaurant</string>
 
     <!-- Restaurant images -->
     <string name="restaurant_images">
         <item>@drawable/restaurant1</item>
+        <item>@drawable/restaurant2</item>
+        <item>@drawable/restaurant3</item>
+        <item>@drawable/restaurant4</item>
+        <item>@drawable/restaurant5</item>
     </string>
     <string name="title_activity_results">ResultsActivity</string>
 
