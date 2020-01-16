@@ -110,11 +110,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         //switches the activity
-//        Intent intent = new Intent(this, SearchResult.class);
-//        Bundle bundle = new Bundle();
-//        bundle.putParcelableArrayList(EXTRA_MESSAGE, restaurants);
-//        intent.putExtras(bundle);
-//        startActivity(intent);
+        Intent intent = new Intent(this, SearchResult.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList(EXTRA_MESSAGE, results);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
 }
