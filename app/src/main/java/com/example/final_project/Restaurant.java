@@ -1,5 +1,6 @@
 package com.example.final_project;
 
+import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -15,16 +16,20 @@ public class Restaurant implements Parcelable {
     private String country;
     private int quality;
 
+
+    private int image;
+
     private int authenticity;
     public int price;
 
-    Restaurant(String name, int location, String country, int q, int a, int p) {
+    Restaurant(String name, int location, String country, int q, int a, int p, int img) {
         this.name = name;
         this.location = location;
         this.country = country;
         this.price = p;
         this.authenticity = a;
         this.quality = q;
+        this.image = img;
     }
 
     // Comparator for sorting the list by price
@@ -85,6 +90,10 @@ public class Restaurant implements Parcelable {
 
     public String getCountry() {
         return country;
+    }
+
+    public int getImage() {
+        return image;
     }
 
 

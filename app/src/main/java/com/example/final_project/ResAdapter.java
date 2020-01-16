@@ -3,10 +3,12 @@ package com.example.final_project;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,12 +22,16 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView name;
+        public ImageView img;
         public View layout;
+        public TextView country;
 
         public ViewHolder(View v) {
             super(v);
             layout = v;
             name = (TextView) v.findViewById(R.id.name);
+            //img = v.findViewById(R.id.card_pic);
+            country = v.findViewById(R.id.country);
         }
     }
 
@@ -59,11 +65,18 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder> {
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        final String name = values.get(position).getName();
+
+        String name = values.get(position).getName();
+        int image = values.get(position).getImage();
+        String country = values.get(position).getCountry();
+
+
         holder.name.setText(name);
-        holder.name.setOnClickListener(new OnClickListener() {
+        //holder.img.setImageResource(image);
+        holder.country.setText(country);
+
+
+        holder.layout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 remove(position);
