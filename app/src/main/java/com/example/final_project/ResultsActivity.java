@@ -30,6 +30,7 @@ public class ResultsActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     public void changeLayout(View view) {

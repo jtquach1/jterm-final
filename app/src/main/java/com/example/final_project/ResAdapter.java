@@ -3,7 +3,10 @@ package com.example.final_project;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,6 +18,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder> {
+    public static final String EXTRA_MESSAGE = "com.example.final_project.RESTAURANT";
     private ArrayList<Restaurant> values;
 
     // Provide a reference to the views for each data item
@@ -85,10 +89,14 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder> {
         holder.country.setText(country);
 
 
-        holder.layout.setOnClickListener(new OnClickListener() {
+        holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                remove(position);
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), RateActivity.class);
+                intent.putExtra("name", values.get(position).getName());
+
+                view.getContext().startActivity(intent);
+
             }
         });
 
