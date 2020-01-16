@@ -77,9 +77,6 @@ public class MainActivity extends AppCompatActivity {
         int selectedId = radioGroup.getCheckedRadioButtonId();
         radioButton = (RadioButton) findViewById(selectedId);
 
-        TextView test = findViewById(R.id.result);
-        test.setText(radioButton.getText());
-
         if (radioButton.getText().equals("Price"))
             Collections.sort(results, Restaurant.priceComparator);
 
@@ -95,19 +92,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSearch(View v) {
         String country = String.valueOf(this.country.getSelectedItem());
-        TextView tv = findViewById(R.id.result);
-        String res = "";
         results = this.restaurants.get(country);
 
         sortResults();
-
-        for (Restaurant r : results) {
-            res += (r.getName() + "\n");
-        }
-
-        //tv.setText(res);
-
-
 
         //switches the activity
         Intent intent = new Intent(this, SearchResult.class);
