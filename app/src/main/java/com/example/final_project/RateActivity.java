@@ -53,7 +53,7 @@ public class RateActivity extends AppCompatActivity {
 
     }
     public void changeLayout(View view) {
-        //swtiches the activity
+        // switches the activity, but crashes
         Intent intent = new Intent(this, ResultsActivity.class);
         startActivity(intent);
 //        setContentView(R.layout.activity_rate);

@@ -44,6 +44,15 @@
         <item>@drawable/restaurant1</item>
     </string>
     <string name="title_activity_results">ResultsActivity</string>
+
+    <!-- Restaurant cards -->
+    <string name="card_title">Card title</string>
+    <string name="card_content">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum nibh vitae laoreet porttitor. Morbi et accumsan nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque vel libero venenatis, varius quam ac, lacinia ex. Aenean quis nisl sed dui posuere laoreet sit amet ut augue. "
+    </string>
+    <string name="action_share">Share</string>
+    <string name="action_explore">Explore</string>
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
