@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // change this to display the activity you want to test
         setContentView(R.layout.activity_main);
 
         country = findViewById(R.id.country);
@@ -103,5 +105,8 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
+
+
 
 }
