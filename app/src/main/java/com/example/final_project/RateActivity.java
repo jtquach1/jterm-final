@@ -1,5 +1,6 @@
 package com.example.final_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -10,6 +11,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
+// from example
+import android.widget.RatingBar;
+import android.widget.Button;
+import android.widget.Toast;
+
+
 public class RateActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +26,9 @@ public class RateActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        // changed id name of the back button
+        // onclick should switch between layouts
+        FloatingActionButton fab = findViewById(R.id.go_back);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,6 +36,27 @@ public class RateActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        // initiate rating bar and a button
+        final RatingBar simpleRatingBar = (RatingBar) findViewById(R.id.simpleRatingBar);
+        Button submitButton = (Button) findViewById(R.id.submitButton);
+        // perform click event on button
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // get values and then displayed in a toast
+                String totalStars = "Total Stars:: " + simpleRatingBar.getNumStars();
+                String rating = "Rating :: " + simpleRatingBar.getRating();
+                Toast.makeText(getApplicationContext(), totalStars + "\n" + rating, Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
+    public void changeLayout(View view) {
+        //swtiches the activity
+        Intent intent = new Intent(this, ResultsActivity.class);
+        startActivity(intent);
+//        setContentView(R.layout.activity_rate);
     }
 
 }

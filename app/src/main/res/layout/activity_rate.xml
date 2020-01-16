@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="What did you think of Shawarma King?"
+                android:text="@string/review_question"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
@@ -44,6 +44,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:contentDescription="@string/contentDescription_shawarma"
                 tools:srcCompat="@drawable/restaurant1" />
 
             <TextView
@@ -51,15 +52,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="TextView"
+                android:text="@string/review_rating"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                tools:text="Leave a rating based on how authentic it is." />
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/ConstraintLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="changeLayout"
                 android:paddingLeft="80dp"
                 android:paddingTop="40dp"
                 android:paddingRight="80dp"
@@ -86,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
                     android:padding="10dp"
-                    android:text="Submit"
+                    android:text="@string/submit"
                     android:textColor="#fff"
                     android:textSize="20sp"
                     android:textStyle="bold"
