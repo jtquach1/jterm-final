@@ -29,7 +29,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        // change this to display the activity you want to test
+//        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_rate);
+//        setContentView(R.layout.activity_results);
+
 
         country = findViewById(R.id.country);
 
@@ -103,5 +108,8 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
+
+
 
 }
