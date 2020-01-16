@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -68,11 +69,17 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder> {
 
         String name = values.get(position).getName();
         int image = values.get(position).getImage();
+
+        Log.d("onBindViewHolder", image + "");
+
         String country = values.get(position).getCountry();
 
 
         holder.name.setText(name);
-        //holder.img.setImageResource(image);
+        holder.img.setImageResource(image);
+
+        Log.d("onBindViewHolder", "Set image");
+
         holder.country.setText(country);
 
 
