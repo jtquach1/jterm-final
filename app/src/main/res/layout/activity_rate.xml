@@ -92,7 +92,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:numStars="5"
-                            android:rating="0" />
+                            android:rating="4.5" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -119,7 +119,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:numStars="5"
-                            android:rating="0" />
+                            android:rating="3.5" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -146,7 +146,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:numStars="5"
-                            android:rating="0" />
+                            android:rating="5" />
                     </LinearLayout>
 
                     <Space
