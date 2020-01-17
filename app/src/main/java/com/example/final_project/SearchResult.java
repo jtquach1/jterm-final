@@ -31,7 +31,7 @@ public class SearchResult extends AppCompatActivity {
         }
     }
 
-    private View createViewFor(Restaurant restaurant) {
+    private View createViewFor(final Restaurant restaurant) {
         LayoutInflater inflater = LayoutInflater.from(this);
         View view = inflater.inflate(R.layout.row_layout, null, false);
 
@@ -43,6 +43,15 @@ public class SearchResult extends AppCompatActivity {
 
         TextView country = view.findViewById(R.id.country);
         country.setText(restaurant.getCountry());
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent changeActivity = new Intent(SearchResult.this, RateActivity.class);
+                changeActivity.putExtra("name", restaurant.getName());
+                startActivity(changeActivity);
+            }
+        });
 
         return view;
     }

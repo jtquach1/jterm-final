@@ -40,7 +40,7 @@ public class Restaurant implements Parcelable {
             int price2 = r2.getPrice();
 
             //ascending order
-            return price1 - price2;
+            return price2 - price1;
         }
     };
 
@@ -52,7 +52,7 @@ public class Restaurant implements Parcelable {
             int authenticity2 = r2.getAuthenticity();
 
             //ascending order
-            return authenticity1 - authenticity2;
+            return authenticity2 - authenticity1;
         }
     };
 
@@ -63,7 +63,7 @@ public class Restaurant implements Parcelable {
             int quality2 = r2.getQuality();
 
             //ascending order
-            return quality1 - quality2;
+            return quality2 - quality1;
         }
     };
 
