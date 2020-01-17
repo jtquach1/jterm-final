@@ -24,6 +24,8 @@ public class LoadingScreen extends AppCompatActivity {
                 Intent intent = new Intent(LoadingScreen.this, MainActivity.class);
                 // run MainActivity
                 startActivity(intent);
+                // prevents going back to LoadingScreen when on SearchResult, will quit to home screen
+                finish();
             }
         }, DELAY);
 
