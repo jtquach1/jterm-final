@@ -45,7 +45,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/restaurant_img"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:contentDescription="@string/contentDescription"

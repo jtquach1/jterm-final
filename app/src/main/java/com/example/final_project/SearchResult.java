@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,11 +45,21 @@ public class SearchResult extends AppCompatActivity {
         TextView country = view.findViewById(R.id.country);
         country.setText(restaurant.getCountry());
 
+        // fixes dynamic stars loading
+        RatingBar priceRating = view.findViewById(R.id.price_rating);
+        RatingBar qualityRating = view.findViewById(R.id.quality_rating);
+        RatingBar authenticityRating = view.findViewById(R.id.authenticity_rating);
+
+        priceRating.setRating(restaurant.getPrice());
+        qualityRating.setRating(restaurant.getQuality());
+        authenticityRating.setRating(restaurant.getAuthenticity());
+
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent changeActivity = new Intent(SearchResult.this, RateActivity.class);
-                changeActivity.putExtra("name", restaurant.getName());
+                changeActivity.putExtra("restaurant", restaurant);
                 startActivity(changeActivity);
             }
         });

@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 // from example
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,7 +20,7 @@ import android.widget.Toast;
 
 
 public class RateActivity extends AppCompatActivity {
-    String name;
+    Restaurant restaurant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +30,15 @@ public class RateActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().hide();
 
-        name = getIntent().getStringExtra("name");
+        restaurant = getIntent().getParcelableExtra("restaurant");
 
+        // change title based on restaurant name
         TextView title = findViewById(R.id.title);
-        title.setText("What did you think of " + name + "?");
+        title.setText("What did you think of " + restaurant.getName() + "?");
+
+        // make restaurant image dynamic
+        ImageView image = findViewById(R.id.restaurant_img);
+        image.setImageResource(restaurant.getImage());
 
         // changed id name of the back button
         // onclick should switch between layouts
